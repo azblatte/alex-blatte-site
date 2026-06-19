@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Blatte — AI Consultant</title>
+  <meta name="description" content="Alex Blatte — AI Consultant & Business Owner. Helping businesses adopt AI to work smarter, faster, and more profitably." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f6f7f9;
+      --ink: #0f172a;
+      --muted: #5b6678;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --border: #e6e8ec;
+      --radius: 16px;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-block; background: var(--accent); color: #fff;
+      padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+      transition: background .2s, transform .2s;
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .nav-links .btn { color: #fff; }
+    @media (max-width: 640px) { .nav-links a:not(.btn) { display: none; } }
+
+    /* Hero */
+    .hero { padding: 96px 0 80px; }
+    .eyebrow {
+      display: inline-block; background: #eef2ff; color: var(--accent-dark);
+      font-weight: 600; font-size: 0.85rem; padding: 6px 14px; border-radius: 999px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.03em;
+      font-weight: 800; margin-bottom: 22px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p { font-size: 1.18rem; color: var(--muted); max-width: 640px; margin-bottom: 34px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-ghost {
+      display: inline-block; padding: 10px 20px; border-radius: 999px;
+      border: 1px solid var(--border); font-weight: 600; font-size: 0.95rem; transition: border-color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-head { max-width: 620px; margin-bottom: 48px; }
+    .section-head .label { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; margin: 10px 0 14px; }
+    .section-head p { color: var(--muted); font-size: 1.08rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+    .about-grid p { color: var(--muted); font-size: 1.08rem; margin-bottom: 18px; }
+    .stats { display: grid; gap: 18px; }
+    .stat { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+    .stat .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .stat .cap { color: var(--muted); font-size: 0.95rem; }
+    @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* Services */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 30px 26px; transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,23,42,0.07); }
+    .card .ico { width: 46px; height: 46px; border-radius: 12px; background: #eef2ff; display: grid; place-items: center; margin-bottom: 18px; font-size: 1.4rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .card p { color: var(--muted); font-size: 1rem; }
+    @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; }
+    .contact-info p { color: var(--muted); font-size: 1.08rem; margin-bottom: 26px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; font-weight: 500; }
+    .contact-item .ico { width: 42px; height: 42px; border-radius: 12px; background: #eef2ff; display: grid; place-items: center; font-size: 1.1rem; }
+    .contact-item a:hover { color: var(--accent); }
+    form { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 7px; }
+    .field input, .field textarea {
+      width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: 1rem; color: var(--ink); transition: border-color .2s;
+    }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 120px; }
+    form .btn { width: 100%; text-align: center; border: none; cursor: pointer; font-size: 1rem; }
+    @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 36px 0; }
+    .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 0.92rem; }
+    .foot .brand { font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Alex<span> Blatte</span></div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">AI Consultant &amp; Business Owner</span>
+        <h1>Helping businesses <span class="grad">put AI to work</span> — practically.</h1>
+        <p>I'm Alex Blatte. I help companies cut through the hype and adopt AI in ways that actually move the needle — saving time, reducing costs, and unlocking new ways to grow.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Start a conversation</a>
+          <a href="#services" class="btn-ghost">What I do</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">About</div>
+          <h2>Strategy meets execution</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>As an AI consultant and business owner, I sit at the intersection of technology and real-world operations. I've seen firsthand what it takes to run a business — and how the right AI tools can transform the way teams work.</p>
+            <p>My approach is pragmatic: no jargon, no overselling. I start by understanding your goals, then design and implement AI solutions that fit your team, your budget, and your timeline.</p>
+            <p>Whether you're exploring your first AI project or scaling what already works, I help you do it with confidence.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="num">Hands-on</div><div class="cap">Implementation, not just slide decks</div></div>
+            <div class="stat"><div class="num">End-to-end</div><div class="cap">From strategy to deployment</div></div>
+            <div class="stat"><div class="num">Business-first</div><div class="cap">ROI-driven, owner's perspective</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Services</div>
+          <h2>How I can help</h2>
+          <p>Flexible engagements tailored to where you are on your AI journey.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="ico">🧭</div>
+            <h3>AI Strategy &amp; Advisory</h3>
+            <p>Identify the highest-impact opportunities for AI in your business and build a clear, prioritized roadmap.</p>
+          </div>
+          <div class="card">
+            <div class="ico">⚙️</div>
+            <h3>Implementation &amp; Automation</h3>
+            <p>Design and deploy AI-powered tools and workflows that automate the busywork and free up your team.</p>
+          </div>
+          <div class="card">
+            <div class="ico">🎓</div>
+            <h3>Training &amp; Enablement</h3>
+            <p>Get your team confident and productive with AI through practical, hands-on training and support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Contact</div>
+          <h2>Let's talk</h2>
+          <p>Have a project in mind or just want to explore what's possible? I'd love to hear from you.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>Reach out directly or send a message using the form — I typically respond within one business day.</p>
+            <div class="contact-item">
+              <div class="ico">✉️</div>
+              <a href="mailto:azblatte@gmail.com">azblatte@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <div class="ico">📍</div>
+              <span>Available for remote engagements worldwide</span>
+            </div>
+          </div>
+          <form action="https://formsubmit.co/azblatte@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New inquiry from Alex Blatte website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" />
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="brand">Alex<span style="color:var(--accent)"> Blatte</span></div>
+      <div>© <span id="yr"></span> Alex Blatte — AI Consultant. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
